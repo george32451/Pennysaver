@@ -1,0 +1,3 @@
+export const HOME_SCREEN = 'HOME_SCREEN'
+export const PROFITS_SCREEN = 'PROFITS_SCREEN'
+export const EXPENSES_SCREEN = 'EXPENSES_SCREEN'
