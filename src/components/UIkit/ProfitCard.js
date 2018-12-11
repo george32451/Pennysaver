@@ -7,7 +7,7 @@ const ProfitCard = () => {
         <View style={profitCardContainer}>
             <View style={profitCard}>
                 <View style={cardTitle}>
-                    <Text style={text}>Расходы</Text>
+                    <Text style={text}>Доходы</Text>
                 </View>
             </View>
         </View>
@@ -16,7 +16,7 @@ const ProfitCard = () => {
 
 const styles = StyleSheet.create({
     profitCardContainer: {
-        flex: 4,
+        flex: 2,
         flexDirection: 'row',
         alignItems: 'flex-start',
         marginHorizontal: 5,
@@ -24,7 +24,7 @@ const styles = StyleSheet.create({
     profitCard: {
         width: '100%',
         height: 150,
-        backgroundColor: '#fff',
+        backgroundColor: '#F5FCFF',
         borderRadius: 10,
         elevation: 1
     },
@@ -36,7 +36,7 @@ const styles = StyleSheet.create({
         marginTop: 10,
     },
     text: {
-        fontSize: 18,
+        fontSize: 14,
         color: '#000',
         fontFamily: 'serif'
     }

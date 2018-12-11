@@ -7,7 +7,7 @@ const ExpensesCard = () => {
         <View style={expensesCardContainer}>
             <View style={expensesCard}>
                 <View style={cardTitle}>
-                    <Text style={text}>Доходы</Text>
+                    <Text style={text}>Расходы</Text>
                 </View>
             </View>
         </View>
@@ -16,7 +16,7 @@ const ExpensesCard = () => {
 
 const styles = StyleSheet.create({
     expensesCardContainer: {
-        flex: 2,
+        flex: 5,
         flexDirection: 'row',
         alignItems: 'flex-start',
         marginHorizontal: 5,
@@ -24,7 +24,7 @@ const styles = StyleSheet.create({
     expensesCard: {
         width: '100%',
         height: 150,
-        backgroundColor: '#fff',
+        backgroundColor: '#F5FCFF',
         borderRadius: 10,
         elevation: 1
     },
@@ -36,7 +36,7 @@ const styles = StyleSheet.create({
         marginTop: 10,
     },
     text: {
-        fontSize: 18,
+        fontSize: 14,
         color: '#000',
         fontFamily: 'serif'
     }

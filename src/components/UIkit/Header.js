@@ -33,12 +33,12 @@ const styles = StyleSheet.create({
     },
     menuIcon: {
         fontSize: 30,
-        marginLeft: 15
+        marginLeft: 15,
+        width: 50,
     },
     titleStyle: {
-        fontSize: 27,
+        fontSize: 20,
         color: '#000',
-        marginLeft: 30,
         fontFamily: 'serif'
     }
 })

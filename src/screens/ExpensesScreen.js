@@ -1,14 +1,19 @@
 import React from 'react';
-import { Header } from '../components/UIkit'
+import { Header, Layout } from '../components/UIkit'
+import { AddProfitOrExpenseCard } from "../containers";
+
 class ExpensesScreen extends React.PureComponent {
     render(){
         const { navigation } = this.props
         return (
-            <Header
-                title='Расход'
-                icon='md-arrow-back'
-                onIconPress={() => navigation.goBack()}
-            />
+            <Layout>
+                <Header
+                    title='Расход'
+                    icon='md-arrow-back'
+                    onIconPress={() => navigation.goBack()}
+                />
+                <AddProfitOrExpenseCard />
+            </Layout>
         )
     }
 
