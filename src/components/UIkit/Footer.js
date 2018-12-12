@@ -3,9 +3,10 @@ import { View, StyleSheet, TouchableOpacity } from "react-native";
 import Ionicons from "react-native-vector-icons/Ionicons";
 
 const Footer = ({ onAddProfitPress, onAddExpensePress, onStatsPress }) => {
+    const { footerContainer, footer } = styles
     return (
-        <View style={styles.footerContainer}>
-            <View style={styles.footer}>
+        <View style={footerContainer}>
+            <View style={footer}>
                 <TouchableOpacity onPress={onAddProfitPress}>
                     <Ionicons name='md-add-circle' style={{fontSize: 35}} color='#000'/>
                 </TouchableOpacity>

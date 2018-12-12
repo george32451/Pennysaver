@@ -11,6 +11,7 @@ class ExpensesScreen extends React.PureComponent {
                     title='Расход'
                     icon='md-arrow-back'
                     onIconPress={() => navigation.goBack()}
+                    checkMark={true}
                 />
                 <AddProfitOrExpenseCard />
             </Layout>

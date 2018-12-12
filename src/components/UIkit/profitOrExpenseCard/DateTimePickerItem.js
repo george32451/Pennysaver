@@ -1,12 +1,12 @@
 import React from 'react'
 import {Text, TouchableOpacity, StyleSheet} from 'react-native'
 
-const DateTimePicker = ({openPicker, date, title}) => {
-    const { dateStyle } = styles
+const DateTimePickerItem = ({openPicker, date, title}) => {
+    const { dateStyle, textStyle } = styles
     return (
         <TouchableOpacity onPress={openPicker} style={dateStyle}>
             <Text>{title}</Text>
-            <Text style={{fontSize:18,color:'blue', marginTop: 10, fontWeight: 'bold'}}>{date}</Text>
+            <Text style={textStyle}>{date}</Text>
         </TouchableOpacity>
     )
 }
@@ -17,6 +17,12 @@ const styles = StyleSheet.create({
         height: 70,
         marginLeft: 5,
     },
+    textStyle: {
+        fontSize:18,
+        color:'blue',
+        marginTop: 10,
+        fontWeight: 'bold'
+    }
 })
 
-export { DateTimePicker }
+export { DateTimePickerItem }

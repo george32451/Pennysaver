@@ -18,3 +18,6 @@ const styles = StyleSheet.create({
 });
 
 export { Layout }
+
+// TODO
+// Избавиться от компонента CardLayout, перенеся его сюда

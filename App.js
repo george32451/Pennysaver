@@ -3,7 +3,7 @@ import Screen from './src/screens'
 
 const App = () => {
     return (
-            <Screen/>
+        <Screen/>
     )
 }
 

@@ -1,11 +1,14 @@
 import React from 'react'
-import { Button, View, StyleSheet, DatePickerAndroid, TimePickerAndroid, TouchableOpacity,Text } from "react-native";
-import { DateTimePicker } from "../components/UIkit";
+import {  DatePickerAndroid, TimePickerAndroid, } from "react-native";
+import { DateTimePickerItem, CategoryItem, SumItem, CardLayout } from "../components/UIkit";
+import FormatTime from '../helpers/FormatTime'
 
 class AddProfitOrExpenseCard extends React.PureComponent {
     state = {
         date: (new Date()).toLocaleDateString('ru-RU'),
-        time: `${new Date().getHours()}:${new Date().getMinutes()}`
+        time: FormatTime(new Date().getHours(), new Date().getMinutes()),
+        categories: ['Еда','Разное'],
+        sumTextInput: ''
     }
 
     openDatePicker = async () => {
@@ -16,7 +19,7 @@ class AddProfitOrExpenseCard extends React.PureComponent {
             if (action !== DatePickerAndroid.dismissedAction) {
                 // Handle date
                 this.setState({
-                    date: `${day}.${month + 1}.${year}` // + 1 cause month return (0 - 11)
+                    date: new Date(year, month, day).toLocaleDateString('ru-RU')
                 })
             }
         } catch ({code, message}) {
@@ -34,7 +37,7 @@ class AddProfitOrExpenseCard extends React.PureComponent {
             if (action !== TimePickerAndroid.dismissedAction) {
                 // Handle time
                 this.setState({
-                    time: `${hour}:${minute}`
+                    time: FormatTime(hour, minute)
                 })
             }
         } catch ({code, message}) {
@@ -42,91 +45,40 @@ class AddProfitOrExpenseCard extends React.PureComponent {
         }
     }
 
+    handleTextChange = (text) => {
+        this.setState({
+            sumTextInput: text,
+        })
+    }
+
     render() {
-        const { cardContainer, card, dateTimeContainer, category, sum, currency, comment } = styles
-        const { date, time } = this.state
+        const { date, time, categories } = this.state
         return (
-            <View style={cardContainer}>
-                <View style={card}>
-                    <View style={dateTimeContainer}>
-                        <DateTimePicker
+            <CardLayout style='cardContainer'>
+                <CardLayout style='card'>
+                    <CardLayout style='dateTimePicker'>
+                        <DateTimePickerItem
                             title='День'
                             openPicker={this.openDatePicker}
                             date={date}
                         />
-                        <DateTimePicker
+                        <DateTimePickerItem
                             title='Время'
                             openPicker={this.openTimePicker}
                             date={time}
                         />
-                    </View>
-                    <View style={category}>
-                    </View>
-                    <View style={sum}>
-                    </View>
-                    <View style={currency}>
-                    </View>
-                    <View style={comment}>
-                    </View>
-                </View>
-            </View>
+                    </CardLayout>
+                    <CategoryItem
+                        categories={categories}
+                    />
+                    <SumItem
+                        sumProp={this.state.sumTextInput}
+                        onTextChange={this.handleTextChange}
+                    />
+                </CardLayout>
+            </CardLayout>
         )
     }
 
 }
-
-const styles = StyleSheet.create({
-    cardContainer: {
-        flex: 8,
-        flexDirection: 'row',
-        alignItems: 'flex-start',
-        marginHorizontal: 5,
-    },
-    card: {
-        flexDirection: 'column',
-        width: '100%',
-        height: 350,
-        borderRadius: 10,
-        backgroundColor: '#F5FCFF',
-        elevation: 1,
-        alignItems: 'flex-start'
-    },
-    dateTimeContainer: {
-        flexDirection: 'row',
-        justifyContent: 'flex-start',
-        alignItems: 'center',
-        borderBottomWidth: 1,
-        borderBottomColor: 'gray',
-        height: 70,
-        width: '100%',
-    },
-    category: {
-        flexDirection: 'column',
-        borderBottomWidth: 1,
-        borderBottomColor: 'gray',
-        height: 70,
-        width: '100%',
-    },
-    sum: {
-        flexDirection: 'column',
-        borderBottomWidth: 1,
-        borderBottomColor: 'gray',
-        height: 70,
-        width: '100%',
-    },
-    currency: {
-        flexDirection: 'column',
-        borderBottomWidth: 1,
-        borderBottomColor: 'gray',
-        height: 70,
-        width: '100%',
-    },
-    comment: {
-        flexDirection: 'column',
-        height: 70,
-        width: '100%',
-    },
-
-})
-
 export { AddProfitOrExpenseCard }
