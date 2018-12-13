@@ -1,13 +1,16 @@
 import React from 'react'
 import { Text, View, StyleSheet } from "react-native";
 
-const ExpensesCard = () => {
-    const { expensesCardContainer, expensesCard, cardTitle, text } = styles
+const ExpensesCard = ({sumOfExpense}) => {
+    const { expensesCardContainer, expensesCard, cardTitle, text, cardBody } = styles
     return (
         <View style={expensesCardContainer}>
             <View style={expensesCard}>
                 <View style={cardTitle}>
                     <Text style={text}>Расходы</Text>
+                </View>
+                <View style={cardBody}>
+                    <Text>{sumOfExpense}</Text>
                 </View>
             </View>
         </View>
@@ -16,7 +19,6 @@ const ExpensesCard = () => {
 
 const styles = StyleSheet.create({
     expensesCardContainer: {
-        flex: 5,
         flexDirection: 'row',
         alignItems: 'flex-start',
         marginHorizontal: 5,
@@ -34,6 +36,12 @@ const styles = StyleSheet.create({
         justifyContent: 'flex-start',
         marginLeft: 10,
         marginTop: 10,
+    },
+    cardBody: {
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'flex-end',
+        marginRight: 10,
     },
     text: {
         fontSize: 14,

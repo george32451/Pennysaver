@@ -22,8 +22,10 @@ const styles = StyleSheet.create({
         alignItems: 'flex-start'
     },
     cardContainer: {
-        flex: 8,
+        flex: 1,
+        flexDirection: 'row',
         marginHorizontal: 5,
+        marginTop: 10,
     },
     dateTimePicker: {
         flexDirection: 'row',

@@ -7,13 +7,8 @@ class ExpensesScreen extends React.PureComponent {
         const { navigation } = this.props
         return (
             <Layout>
-                <Header
-                    title='Расход'
-                    icon='md-arrow-back'
-                    onIconPress={() => navigation.goBack()}
-                    checkMark={true}
-                />
-                <AddProfitOrExpenseCard />
+
+                <AddProfitOrExpenseCard navigation={navigation}/>
             </Layout>
         )
     }

@@ -1,1 +1,2 @@
-export * from './AddProfitOrExpenseCard'
+import AddProfitOrExpenseCard from './AddProfitOrExpenseCard'
+export { AddProfitOrExpenseCard }

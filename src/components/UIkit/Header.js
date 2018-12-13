@@ -12,7 +12,7 @@ const Header = ({title, icon, onIconPress, checkMark = false, onCheckMarkPress})
                     <Ionicons name={icon} style={menuIcon} color='#000'/>
                 </TouchableOpacity>
                 <Text style={titleStyle}>{title}</Text>
-                <TouchableOpacity>
+                <TouchableOpacity onPress={onCheckMarkPress}>
                     {checkMark && <Ionicons name='md-checkmark' style={checkMarkIcon} color='#000'/>}
                 </TouchableOpacity>
             </View>
@@ -30,9 +30,10 @@ const styles = StyleSheet.create({
         alignItems: 'center',
     },
     headerContainer: {
-        flex: 1,
+        flex: 0,
         flexDirection: 'row',
         alignItems: 'flex-start',
+        backgroundColor: 'gold'
     },
     menuIcon: {
         fontSize: 30,
